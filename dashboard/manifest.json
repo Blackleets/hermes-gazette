@@ -1,0 +1,1 @@
+{"api":"plugin_api.py","css":"dist/style.css","description":"The Hermes Gazette — daily newspaper of the Nous / Hermes ecosystem","entry":"dist/index.js","icon":"FileText","label":"Gazette","name":"hermes-gazette","tab":{"path":"/gazette","position":"end"},"version":"0.1.0"}

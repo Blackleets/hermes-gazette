@@ -1,0 +1,15 @@
+name: hermes-gazette
+version: 0.7.0
+requires_hermes: ">=0.21.5"
+description: "The Hermes Gazette — a daily newspaper for the Nous Research / Hermes ecosystem. Fetches RSS/Atom/JSON feeds, verifies every story's date, and renders a mobile-first newsprint edition (HTML + Markdown) you can read in the Hermes dashboard, desktop app, or on your phone via gateway delivery."
+author: Lee Renteria (Blackleets)
+license: MIT
+tags: [news, newspaper, rss, nous, community, dashboard]
+provides_tools:
+  - gazette_generate
+  - gazette_latest
+provides_hooks: []
+config_schema:
+  edition_hour: {type: int, default: 8, label: "Edition hour", description: "Local hour for the daily edition cron (set up by the bundled skill)"}
+  max_age_hours: {type: int, default: 168, label: "Max story age (hours)", description: "Stories older than this are never printed"}
+  language: {type: str, default: en, label: "Language", description: "Edition language label (en/es)"}

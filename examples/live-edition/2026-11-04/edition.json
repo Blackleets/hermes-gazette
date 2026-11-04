@@ -1,0 +1,111 @@
+{
+  "title": "The Hermes Gazette",
+  "subtitle": "The newspaper of the Nous Research ecosystem",
+  "date": "2026-11-04",
+  "generated_at": "2026-11-04T16:10:43.537725+00:00",
+  "is_sample": false,
+  "story_count": 12,
+  "sections": {
+    "Under the Hood": [
+      {
+        "title": "A running request is not \"busy with an earlier turn\"; …",
+        "link": "https://github.com/NousResearch/hermes-agent/commit/3a1e9ef50a570b1544795ddad197ad2dcde430ab",
+        "summary": "Trim the message_agent schema Live: the deliver answer reads target_state \"working\" for the turn this same request just started, so the ack no longer claims an earlier turn.",
+        "published": "2026-11-04T16:01:12+00:00",
+        "source": "Hermes Agent — Commits",
+        "section": "Under the Hood"
+      },
+      {
+        "title": "Typed request envelope, a forgotten reply relayed onc…",
+        "link": "https://github.com/NousResearch/hermes-agent/commit/160339e0dd5ceb4fe5b1feadf26e0886028bb9ab",
+        "summary": "And one \"never answered\" sentence per dead request - message_agent takes optional constraints and expecting; the teammate reads them as labelled \"Constraints:\" / \"Reply needed:\" lines under the message.; A teammate that ends a request turn…",
+        "published": "2026-11-04T16:01:12+00:00",
+        "source": "Hermes Agent — Commits",
+        "section": "Under the Hood"
+      },
+      {
+        "title": "A fan-out to a peer and a local bot sharing its name r…",
+        "link": "https://github.com/NousResearch/hermes-agent/commit/53f5378a8e8271e3b0cace624c0805c63e30f6bd",
+        "summary": "Both split_targets deduplicated a comma list by the local bot each name resolves to.",
+        "published": "2026-11-04T16:01:12+00:00",
+        "source": "Hermes Agent — Commits",
+        "section": "Under the Hood"
+      },
+      {
+        "title": "A sender's cancel by delivery id always reaches the de…",
+        "link": "https://github.com/NousResearch/hermes-agent/commit/50c7d1c4b9cc01e5dccb66dfab9ac38066779627",
+        "summary": "Retry message_agent's cancel picked an admission from the target's receipt file and cancelled it with prompt.cancel.",
+        "published": "2026-11-04T16:01:12+00:00",
+        "source": "Hermes Agent — Commits",
+        "section": "Under the Hood"
+      },
+      {
+        "title": "Fan-out keeps every teammate's answer, error and pendi…",
+        "link": "https://github.com/NousResearch/hermes-agent/commit/303f2a8035dc9aa0048c8de6799e88811423bffd",
+        "summary": "State Review round on the message_agent fan-out: The runner's sub-processes get stdin=DEVNULL (the TUI subprocess stdin guard).; Each spec entry names how its runner reports: only the live lane prints a delivery record; a relay or peer…",
+        "published": "2026-11-04T16:01:12+00:00",
+        "source": "Hermes Agent — Commits",
+        "section": "Under the Hood"
+      },
+      {
+        "title": "Cover the teammate state a message_agent sender hears",
+        "link": "https://github.com/NousResearch/hermes-agent/commit/5c75b00d0aa28caa445d67bdf69b3867742726d1",
+        "summary": "Idle / working / waiting_clarify / waiting_approval (approval first) / paused, derived by gateway/session_bot_state.py from a real SessionAuthority, claim and prompt registration.",
+        "published": "2026-11-04T16:01:12+00:00",
+        "source": "Hermes Agent — Commits",
+        "section": "Under the Hood"
+      }
+    ],
+    "Hermes Agent": [
+      {
+        "title": "Hermes Agent v0.22.7 released",
+        "link": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.7%2Bcanary.20261104T064347Z",
+        "summary": "Hermes Agent canary 20261104T064347Z",
+        "published": "2026-11-04T06:43:49+00:00",
+        "source": "Hermes Agent — Releases",
+        "section": "Hermes Agent"
+      },
+      {
+        "title": "Hermes Agent v0.22.7",
+        "link": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.7",
+        "summary": "Patch release. This tag rolls up the ~174 PRs merged since v0.22.6 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud.",
+        "published": "2026-11-03T21:53:16+00:00",
+        "source": "Hermes Agent — Releases",
+        "section": "Hermes Agent"
+      },
+      {
+        "title": "Hermes Agent v0.22.7 — release candidate 1",
+        "link": "https://github.com/NousResearch/hermes-agent/releases/tag/rc.1-v0.22.7",
+        "summary": "Pre-release build for testing.",
+        "published": "2026-11-03T19:54:31+00:00",
+        "source": "Hermes Agent — Releases",
+        "section": "Hermes Agent"
+      },
+      {
+        "title": "Hermes Agent v0.22.6 released",
+        "link": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.6%2Bcanary.20261103T064339Z",
+        "summary": "Hermes Agent canary 20261103T064339Z",
+        "published": "2026-11-03T06:43:40+00:00",
+        "source": "Hermes Agent — Releases",
+        "section": "Hermes Agent"
+      },
+      {
+        "title": "Hermes Agent v0.22.6",
+        "link": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.6",
+        "summary": "Patch release. This tag rolls up the ~776 PRs merged since v0.22.5 into a stable release for the GitHub release (CLI and installers), the Microsoft Store app, Docker and Hermes Cloud.",
+        "published": "2026-11-02T17:18:36+00:00",
+        "source": "Hermes Agent — Releases",
+        "section": "Hermes Agent"
+      },
+      {
+        "title": "Hermes Agent v0.22.6 — release candidate 3",
+        "link": "https://github.com/NousResearch/hermes-agent/releases/tag/rc.3-v0.22.6",
+        "summary": "Pre-release build for testing.",
+        "published": "2026-11-02T15:58:06+00:00",
+        "source": "Hermes Agent — Releases",
+        "section": "Hermes Agent"
+      }
+    ]
+  },
+  "errors": []
+}
