@@ -1,14 +1,20 @@
 // Hermes Gazette — Desktop plugin (Hermes Desktop Plugin SDK, @hermes/plugin-sdk).
 // One ESM file, no build step. Adds a full Gazette page + sidebar entry to the
-// native Hermes Desktop app. Data comes from the shared backend namespace
-// (/api/plugins/hermes-gazette/) provided by dashboard/plugin_api.py — the
+// native Hermes Desktop app. Data comes through ctx.rest — the Desktop
+// SDK's namespace-scoped REST door to the plugin's own FastAPI router
+// (dashboard/plugin_api.py, mounted at /api/plugins/hermes-gazette/) — the
 // same saved edition the dashboard tab and mobile delivery read.
+// (host.fetchJSON is a web-dashboard API and throws on Desktop; ctx.rest
+// is the supported path here, same as the bundled plugins.)
 //
 // NOTE: this file is loaded uncompiled by Hermes Desktop, so UI is built
 // with jsx() calls, never JSX syntax (per the Desktop Plugin SDK docs).
 
-import { host, jsx, ROUTES_AREA, SIDEBAR_NAV_AREA } from '@hermes/plugin-sdk'
+import { jsx, ROUTES_AREA, SIDEBAR_NAV_AREA } from '@hermes/plugin-sdk'
 import { useEffect, useState } from 'react'
+
+// Bound in register(ctx) below; the page only renders after registration.
+let rest = null
 
 function GazettePage() {
   const [edition, setEdition] = useState(null)
@@ -16,8 +22,8 @@ function GazettePage() {
 
   useEffect(() => {
     let alive = true
-    host
-      .fetchJSON('/api/plugins/hermes-gazette/latest')
+    if (!rest) { setError('Gazette backend is not available in this context.'); return }
+    rest('/latest')
       .then((res) => { if (alive) setEdition(res.edition) })
       .catch(() => { if (alive) setError('No edition yet — ask your agent: /gazette') })
     return () => { alive = false }
@@ -55,6 +61,7 @@ export default {
   name: 'Hermes Gazette',
   defaultEnabled: true,
   register(ctx) {
+    rest = ctx.rest
     ctx.register({
       id: 'gazette-page',
       area: ROUTES_AREA,

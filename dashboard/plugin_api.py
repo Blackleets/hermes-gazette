@@ -8,17 +8,12 @@ so opening the tab never spends model tokens or hammers feed sources.
 from __future__ import annotations
 
 import json
-import sys
 from pathlib import Path
 
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse, PlainTextResponse
 
 router = APIRouter()
-
-_PLUGIN_ROOT = Path(__file__).parent.parent
-if str(_PLUGIN_ROOT) not in sys.path:
-    sys.path.insert(0, str(_PLUGIN_ROOT))
 
 
 def _latest_dir() -> Path:

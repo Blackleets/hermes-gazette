@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.7.1 — 2026-11-26 · catalog review fixes
+
+Fixes for the catalog review (NousResearch/hermes-agent#149016):
+
+- Desktop page: data now loads through `ctx.rest('/latest')` (the
+  Desktop SDK's namespace-scoped REST door, bound in `register(ctx)`);
+  `host.fetchJSON` exists only on the web-dashboard SDK and threw
+  inside `useEffect`, so the page never loaded on Desktop.
+- Dashboard backend: dropped the `sys.path.insert(0, _PLUGIN_ROOT)`
+  block — nothing in `plugin_api.py` imports from the plugin root, and
+  the insert put the plugin's top-level `tools.py` ahead of Hermes'
+  own `tools` package in the dashboard process.
+
 ## 0.7.0 — 2026-11-04 · the illustrated cover, with real words
 
 - **Cover system** (`scripts/make_cover.py`, optional Pillow + ffmpeg):
